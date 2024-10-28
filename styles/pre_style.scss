@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+$titles-font: "Montserrat", sans-serif;
+$text-font: "Open Sans", sans-serif;
+
+$primary-color: #22aeff;
+$secondary-color: #104564;
+$titles-color: #012342;
+$text-color: black;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+%button {
+    color: $titles-color;
+    border: {
+        style: solid;
+        width: 2px;
+        radius: 5px;
+    }
+    padding: 12px;
+    text-decoration: none;
+    font: {
+        family: $text-font;
+        size: 1.1em;
+        weight: bold;
+    }
+    &:hover {
+        background-color: $titles-color;
+        border-color: $titles-color;
+        color: white;
+        transition: .3s;
+    }
+}
+
+header {
+    background-color: $primary-color;
+    display: grid;
+    grid-template-columns: auto 100px 135px 40px;
+
+    nav {
+        padding: 20px;
+        ul {
+            list-style: none;
+            li {
+                display: inline-flex;
+                padding: 10px;
+                margin-left: -4px;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font: {
+                        family: $text-font;
+                        weight: bold;
+
+                    }
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
+            }
+            li#title {
+              
+                a {
+                    color: $titles-color;
+                    font: {
+                        family: $titles-font;
+                        size: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+    nav.buttons {
+        padding-right: 0;
+        justify-items: right;
+        ul {
+            li#btn-login {
+                a {
+                    @extend %button
+                }
+            }
+        }
+    }
+    #website-settings {
+        justify-items: center;
+        align-content: center;
+        background-color: $primary-color;
+        #theme-toggle {
+            cursor: pointer;
+        }
+    }
+    div#hamburguer {
+        width: 30px;
+        height: 21px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: auto;
+        margin-left: 0;
+        cursor: pointer;
+    
+        .line {
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            transition: rotate .6s ease-in-out;
+
+            &.active {
+                &:nth-child(1) {
+                    display: none;
+                }
+                &:nth-child(2) {
+                    rotate: -45deg;
+                    margin-top: 15px;
+                    
+                }
+                &:nth-child(3) {
+                    rotate: 45deg;
+                }
+            }
+        }
+    }
+}
+
+main {
+    background-color: #e4e3e3;
+    padding: 20px;
+    justify-items: center;
+}
+
+h1 {
+    color: rgba(0, 0, 0, 0.911);
+    font: {
+        family: $titles-font;
+        size: 3em;
+    }
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container {
+    .card {
+        width: 300px;
+        background-color: white;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 10px rgba(117, 117, 117, 0.37);
+        font-family: $text-font;
+        text-align: center;
+        .card-header {
+            color: rgba(0, 0, 0, 0.911);
+            font-family: $titles-font;
+        }
+        .card-body {
+            margin: 20px 0;
+        }
+        .card-footer {
+            margin-top: 35px;
+            margin-bottom: 15px;
+            a {
+                @extend %button;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+aside {
+    padding: 50px;
+    background-color: $secondary-color;
+    justify-items: center;
+    color: white;
+    h2 {
+        margin-bottom: 30px;
+        font: {
+            size: 2em;
+            family: $titles-font;
+        }
+    }
+    form {
+        input {
+            display: block;
+            width: 600px;
+            padding: 10px;
+            margin: auto;
+            border-radius: 5px;
+            border: 3px solid;
+            font: {
+                family: $text-font;
+                size: 2em;
+            }
+        }
+        #btn-submit {
+            @extend %button;
+            cursor: pointer;
+            width: 200px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    }
+}
+
+
+footer {
+    padding: 70px;
+    background-color: rgba(0, 0, 0, 0.911);
+    .container {
+        .logo, .about, .contacts {
+            width: 400px;
+            margin: 20px;
+            padding: 10px;
+            color: white;
+            font-family: $text-font;
+            h4 {
+                margin-bottom: 10px;
+                font: {
+                    size: 1.5em;
+                    family: $titles-font;
+                }
+            }
+            nav {
+                ul {
+                    list-style: none;
+                    li {
+                        margin: 15px 0;
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            &:hover {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .logo {
+            width: 200px;
+        }
+    }
+    p {
+        color: white;
+        a {
+            color: white;
+        }
+    }
+}
+
+
+/*** MEDIA QUERIES (RESPONSIVITY) */
+@media (max-width: 750px) {
+    header {
+        div#hamburguer {
+            display: flex;
+            margin-top: 20px;
+        }
+        .menu {
+            margin-top: 0;
+            max-height: 15px;
+            overflow: hidden;
+            transition: .6s ease-in-out;
+            opacity: 0;
+            ul {
+                display: flex;
+                flex-direction: column;
+            }
+            &.active {
+                max-height: 500px;
+                opacity: 1;
+            }
+        }
+        #website-settings {
+            width: 50px;
+            #theme-toggle {
+                margin-top: -50px;
+                margin: 0;
+                cursor: pointer;
+            }
+        }
+        
+    }
+    aside {
+        form {
+            input#email {
+                width: 100%;
+            }
+        }
+    }
+}
