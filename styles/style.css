@@ -169,7 +169,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.911);
 }
 footer .container .logo, footer .container .about, footer .container .contacts {
-  width: 400px;
+  width: 300px;
   margin: 20px;
   padding: 10px;
   color: white;
